@@ -1,12 +1,16 @@
 # app-cm-nightlies
-This app pulls the tonky/gae-cm-nightlies (live at cm-nightlies-appspot.com) json feed and presents it in a mobile friendly ListView. 
+This app pulls the [tonky/gae-cm-nightlies](https://github.com/tonky/gae-cm-nightlies) (live at http://cm-nightlies.appspot.com) json feed and presents it in a mobile friendly ListView. 
 
 It's also available at android market https://play.google.com/store/apps/details?id=dk.mide.fas.cmnightlies
 
 ## Requirements
-Android 2.3 (i guess, tested in 2.3 and 4.0)
-[ActionbarSherlock](http://actionbarsherlock.com/) 
-[GSON](http://code.google.com/p/google-gson/)
+1. Android 2.3 (i guess, tested in 2.3 and 4.0)
+2. [Actionbar Sherlock](http://actionbarsherlock.com/) 
+3. [GSON](http://code.google.com/p/google-gson/)
+
+## Screenshots
+![screenshot 1](http://dl.dropbox.com/u/39209709/Screenshot_2012-03-27-01-52-46.png)
+![screenshot 2](http://dl.dropbox.com/u/39209709/Screenshot_2012-03-27-11-52-04.png)
 
 ## License
 MIT License
