@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_refresh"
+                  android:icon="@drawable/ic_menu_refresh"
+        android:showAsAction="ifRoom|collapseActionView"
+        />
+    <item android:id="@+id/menu_pref"
+          android:title="Preferences"
+          android:icon="@android:drawable/ic_menu_preferences"
+          
+          android:showAsAction="ifRoom|collapseActionView"/>
+</menu>
+ 

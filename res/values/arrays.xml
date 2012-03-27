@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+<!-- from gae-cm-nightlies (https://github.com/tonky/gae-cm-nightlies/blob/master/config/config.py)
+    "ace": ["android_device_htc_ace", "android_device_htc_msm7x30-common", "htc-kernel-msm7x30"],
+    "anzu": ["android_device_semc_anzu", "android_device_semc_mogami-common", 
+               "android_device_semc_msm7x30-common"],
+    "blade": ["android_device_zte_blade"],
+    "bravo": ["android_device_htc_bravo", "cm-kernel"],
+    "bravoc": ["android_device_htc_bravoc", "cm-kernel"],
+    "buzz": ["android_device_htc_buzz"],
+    "c660": ["android_device_lge_c660"],
+    "captivatemtd": ["android_device_samsung_captivatemtd", "android_device_samsung_aries-common"],
+    "cdma_shadow": ["android_device_motorola_shadow", "android_device_motorola_common"],
+    "cdma_droid2": ["android_device_motorola_droid2", "android_device_motorola_common"],
+    "click": ["android_device_htc_click"],
+    "crespo": ["android_device_samsung_crespo", "samsung-kernel-crespo"],
+    "crespo4g": ["android_device_samsung_crespo4g", "samsung-kernel-crespo"],
+    "e510": ["android_device_lge_e510"],
+    "e730": ["android_device_lge_e730", "android_device_lge_victor-common", "lge-kernel-msm7x30"],
+    "e739": ["android_device_lge_e739", "android_device_lge_victor-common", "lge-kernel-msm7x30"],
+    "encore": ["android_device_bn_encore", "android_hardware_alsa_sound", "android_external_alsa-utils",
+               "android_external_alsa-lib"],
+    "epicmtd": ["android_device_samsung_epicmtd", "android_kernel_samsung_victory"],
+    "es209ra": ["android_device_semc_es209ra", "android_device_semc_msm7x27-common"],
+    "espresso": ["android_device_htc_espresso", "htc-kernel-msm7227"],
+    "fascinatemtd": ["android_device_samsung_fascinatemtd", "android_device_samsung_aries-common"],
+    "galaxys2": ["android_device_samsung_galaxys2", "android_device_samsung_c1-common"],
+    "galaxys2att": ["android_device_samsung_galaxys2att", "android_device_samsung_c1-common"],
+    "galaxysmtd": ["android_device_samsung_galaxysmtd", "android_device_samsung_aries-common"],
+    "glacier": ["android_device_htc_glacier", "android_device_htc_msm7x30-common", "htc-kernel-msm7x30"],
+    "hallon": ["android_device_semc_hallon", "android_device_semc_mogami-common", 
+               "android_device_semc_msm7x30-common"],
+    "hero": ["android_device_htc_hero"],
+    "heroc": ["android_device_htc_heroc"],
+    "inc": ["android_device_htc_inc", "cm-kernel", "htc-kernel-incrediblec"],
+    "legend": ["android_device_htc_legend", "htc-kernel-msm7227"],
+    "liberty": ["android_device_htc_liberty", "htc-kernel-msm7227"],
+    "maguro": ["android_device_samsung_maguro"],
+    "mango": ["android_device_semc_mango", "android_device_semc_mogami-common", 
+               "android_device_semc_msm7x30-common"],
+    "mimmi": ["android_device_semc_mimmi", "android_device_semc_msm7x27-common"],
+    "morrison": ["android_device_motorola_morrison"],
+    "motus": ["android_device_motorola_motus"],
+    "one": ["android_device_geeksphone_one"],
+    "olympus": ["android_device_motorola_olympus"],
+    "p500" : ["android_device_lge_p500", "lge-kernel-msm7x27"],
+    "p920": ["android_device_lge_p920"],
+    "p925": ["android_device_lge_p925"],
+    "p970": ["android_device_lge_p970"],
+    "p990": ["android_device_lge_p990", "android_device_lge_star-common", "lge-kernel-star"],
+    "p999": ["android_device_lge_p999", "android_device_lge_star-common", "lge-kernel-star"],
+    "passion": ["android_device_htc_passion", "android_device_htc_passion-common", "cm-kernel"],
+    "robyn": ["android_device_semc_robyn", "android_device_semc_msm7x27-common"],
+    "saga": ["android_device_htc_saga", "android_device_htc_msm7x30-common", "htc-kernel-msm7x30"],
+    "shakira": ["android_device_semc_shakira", "android_device_semc_msm7x27-common"],
+    "sholes": ["android_device_motorola_sholes"],
+    "smb_a1002": ["android_device_malata_smb_a1002"],
+    "smultron": ["android_device_semc_smultron", "android_device_semc_mogami-common", 
+               "android_device_semc_msm7x30-common"],
+    "stingray": ["android_device_moto_stingray"],
+    "speedy": ["android_device_htc_speedy", "android_device_htc_msm7x30-common", "htc-kernel-msm7x30"],
+    "supersonic": [ "android_device_htc_supersonic", "htc-kernel-supersonic", "cm-kernel"],
+    "toro": ["android_device_samsung_toro"],
+    "umts_jordan": ["android_device_motorola_jordan"],
+    "urushi": ["android_device_semc_urushi", "android_device_semc_mogami-common",
+               "android_device_semc_msm7x30-common"],
+    "vega": ["android_device_advent_vega"],
+    "vibrantmtd": ["android_device_samsung_vibrantmtd", "android_device_samsung_aries-common"],
+    "vision": ["android_device_htc_vision", "android_device_htc_msm7x30-common", "htc-kernel-msm7x30"],
+    "vivo": ["android_device_htc_vivo", "android_device_htc_msm7x30-common", "htc-kernel-msm7x30"],
+    "vivow": ["android_device_htc_vivow", "android_device_htc_msm7x30-common", "htc-kernel-msm7x30"],
+    "v9": ["android_device_zte_v9"],
+    "wingray": ["android_device_moto_wingray"],
+    "z71": ["android_device_commtiva_z71"],
+    "zeppelin": ["android_device_motorola_zeppelin"],
+    "zero": ["android_device_geeksphone_zero", "geeksphone-kernel-zero"],
+    "zeus": ["android_device_semc_zeus", "android_device_semc_zeus-common", 
+               "android_device_semc_msm7x30-common"]
+ -->
+    <string-array name="availableDevices">
+        <item name="ace">ace</item>
+        <item name="anzu">anzu</item>
+        <item name="blade">blade</item>
+        <item name="bravo">bravo</item>
+        <item name="bravoc">bravoc</item>
+        <item name="buzz">buzz</item>
+        <item name="c660">c660</item>
+        <item name="captivatemtd">captivatemtd</item>
+        <item name="cdma_shadow">cdma_shadow</item>
+        <item name="cdma_droid2">cdma_droid2</item>
+        <item name="click">click</item>
+        <item name="crespo">crespo</item>
+        <item name="crespo4g">crespo4g</item>
+        <item name="e510">e510</item>
+        <item name="e730">e730</item>
+        <item name="e739">e739</item>
+        <item name="encore">encore</item>
+        <item name="epicmtd">epicmtd</item>
+        <item name="es209ra">es209ra</item>
+        <item name="espresso">espresso</item>
+        <item name="fascinatemtd">fascinatemtd</item>
+        <item name="galaxys2">galaxys2</item>
+        <item name="galaxys2att">galaxys2att</item>
+        <item name="galaxysmtd">galaxysmtd</item>
+        <item name="glacier">glacier</item>
+        <item name="hallon">hallon</item>
+        <item name="hero">hero</item>
+        <item name="heroc">heroc</item>
+        <item name="inc">inc</item>
+        <item name="legend">legend</item>
+        <item name="liberty">liberty</item>
+        <item name="maguro">maguro</item>
+        <item name="mango">mango</item>
+        <item name="mimmi">mimmi</item>
+        <item name="morrison">morrison</item>
+        <item name="motus">motus</item>
+        <item name="one">one</item>
+        <item name="p500">p500</item>
+        <item name="olympus">olympus</item>
+        <item name="p920">p920</item>
+        <item name="p925">p925</item>
+        <item name="p970">p970</item>
+        <item name="p990">p990</item>
+        <item name="p999">p999</item>
+        <item name="passion">passion</item>
+        <item name="robyn">robyn</item>
+        <item name="saga">saga</item>
+        <item name="shakira">shakira</item>
+        <item name="sholes">sholes</item>
+        <item name="smb_a1002">smb_a1002</item>
+        <item name="smultron">smultron</item>
+        <item name="stingray">stingray</item>
+        <item name="speedy">speedy</item>
+        <item name="supersonic">supersonic</item>
+        <item name="toro">toro</item>
+        <item name="umts_jordan">umts_jordan</item>
+        <item name="urushi">urushi</item>
+        <item name="vega">vega</item>
+        <item name="vibrantmtd">vibrantmtd</item>
+        <item name="vision">vision</item>
+        <item name="vivo">vivo</item>
+        <item name="vivow">vivow</item>
+        <item name="v9">v9</item>
+        <item name="wingray">wingray</item>
+        <item name="z71">z71</item>
+        <item name="zeppelin">zeppelin</item>
+        <item name="zero">zero</item>
+        <item name="zeus">zeus</item>
+        
+   </string-array>
+
+</resources>
