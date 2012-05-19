@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 import java.text.SimpleDateFormat;
@@ -21,7 +22,21 @@ import dk.mide.fas.cmnightlies.model.Section;
 public class Service {
 	
 	String changesUrl = "http://cm-nightlies.appspot.com/changelog/?device=";
-	
+	String devicesUrl = "http://cm-nightlies.appspot.com/devices/";
+	public ArrayList<String> getDevices() throws Exception {
+		Gson gson = new Gson();
+		
+		HttpURLConnection con = (HttpURLConnection) new URL(devicesUrl).openConnection();
+		
+		InputStreamReader reader = new InputStreamReader(con.getInputStream());
+		Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();
+		ArrayList<String> liste = gson.fromJson(reader, collectionType);
+		Collections.sort(liste);
+		reader.close();
+		con.disconnect();
+		return liste;
+		
+	}
 	public ArrayList<ListItem> getChanges(String device) throws Exception{
 		String url = changesUrl + device;
 		Gson gson = new Gson();
