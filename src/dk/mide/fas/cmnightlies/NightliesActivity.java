@@ -102,14 +102,17 @@ public class NightliesActivity extends SherlockListActivity {
 	@Override  
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		ListItem li = (ListItem)l.getItemAtPosition(position);
+		String url = "";
 		if(!li.isSection())
 		{
 			Change c = (Change)li;
-			String url = "http://review.cyanogenmod.com/" + c.id;
-			Intent i = new Intent(Intent.ACTION_VIEW);
-			i.setData(Uri.parse(url));
-			startActivity(i);
+			url = "http://review.cyanogenmod.com/" + c.id;
+		} else {
+			url = "http://download.cyanogenmod.com/?device=" + currentDevice;
 		}
+		Intent i = new Intent(Intent.ACTION_VIEW);
+		i.setData(Uri.parse(url));
+		startActivity(i);
 	}
     private class GetChanges extends AsyncTask<String, Void, ArrayList<ListItem>>{
 
