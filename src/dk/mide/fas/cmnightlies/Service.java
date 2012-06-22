@@ -21,8 +21,8 @@ import dk.mide.fas.cmnightlies.model.Section;
 
 public class Service {
 	
-	String changesUrl = "http://cm-nightlies.appspot.com/changelog/?device=";
-	String devicesUrl = "http://cm-nightlies.appspot.com/devices/";
+	String changesUrl = "http://cm9log-app.appspot.com/changelog/?device=";
+	String devicesUrl = "http://cm9log-app.appspot.com/devices/";
 	public ArrayList<String> getDevices() throws Exception {
 		Gson gson = new Gson();
 		
