@@ -20,14 +20,14 @@ import dk.mide.fas.cmnightlies.model.ListItem;
 import dk.mide.fas.cmnightlies.model.Section;
 
 public class Service {
-	
-	String changesUrl = "http://cm9log-app.appspot.com/changelog/?device=";
-	String devicesUrl = "http://cm9log-app.appspot.com/devices/";
+
+	String changesUrl = "http://cm10log-app.appspot.com/changelog/?device=";
+	String devicesUrl = "http://cm10log-app.appspot.com/devices/";
 	public ArrayList<String> getDevices() throws Exception {
 		Gson gson = new Gson();
-		
+
 		HttpURLConnection con = (HttpURLConnection) new URL(devicesUrl).openConnection();
-		
+
 		InputStreamReader reader = new InputStreamReader(con.getInputStream());
 		Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();
 		ArrayList<String> liste = gson.fromJson(reader, collectionType);
@@ -35,18 +35,18 @@ public class Service {
 		reader.close();
 		con.disconnect();
 		return liste;
-		
+
 	}
 	public ArrayList<ListItem> getChanges(String device) throws Exception{
 		String url = changesUrl + device;
 		Gson gson = new Gson();
 		HttpURLConnection connection = 
-				(HttpURLConnection) new URL(url).openConnection();		
-		
+				(HttpURLConnection) new URL(url).openConnection();
+
 		InputStreamReader reader = new InputStreamReader(connection.getInputStream());
 		Type collectionType = new TypeToken<ArrayList<Change>>(){}.getType();
 		ArrayList<Change> liste = gson.fromJson(reader, collectionType);
-		
+
 		ArrayList<ListItem> sectionedList = new ArrayList<ListItem>(liste.size());
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
 		Date lastDate = null;
@@ -74,9 +74,9 @@ public class Service {
 			}
 		}
 		reader.close();
-		connection.disconnect();	
+		connection.disconnect();
 
 		return sectionedList;
 	}
-	
+
 }
