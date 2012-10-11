@@ -45,7 +45,7 @@ public class NightliesActivity extends SherlockListActivity {
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.main);
         mInflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        
+
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         // then you use
         currentDevice = prefs.getString("device", defaultDevice);
@@ -57,10 +57,10 @@ public class NightliesActivity extends SherlockListActivity {
     	currentDevice = device;
         new GetChanges().execute(device);
         getSupportActionBar().setSubtitle(device);
-        setSupportProgressBarIndeterminateVisibility(Boolean.TRUE);    	
+        setSupportProgressBarIndeterminateVisibility(Boolean.TRUE);
     }
 
-    
+
     public void gotDataEvent(ArrayList<ListItem> changes)
     {
     	setSupportProgressBarIndeterminateVisibility (Boolean.FALSE);
@@ -69,7 +69,7 @@ public class NightliesActivity extends SherlockListActivity {
         	public View getView(int position, View convertView, ViewGroup parent) {
         		View row;
         		ListItem li = getItem(position);
- 
+
         		if(!li.isSection()) {
         			row = convertView;
         			if(convertView == null || convertView.getId() != R.layout.list_item)
@@ -80,7 +80,7 @@ public class NightliesActivity extends SherlockListActivity {
         			((TextView) row.findViewById(R.id.subject)).setText(change.subject);
             		((TextView) row.findViewById(R.id.project)).setText(
             				"("+change.project + ")"
-            		);        			
+            		);
         		} else {
         			row = convertView;
         			if(convertView == null || convertView.getId() != R.layout.list_section)
@@ -89,17 +89,17 @@ public class NightliesActivity extends SherlockListActivity {
         			}
         			Section section = (Section)li;
         			row = mInflater.inflate(R.layout.list_section, null);
-        			//ex update-cm-9-20120324-NIGHTLY-crespo-signed.zip
+        			//ex update-cm-10-20120324-NIGHTLY-crespo-signed.zip
         			((TextView) row.findViewById(R.id.list_item_section_text)).setText(
-        					"update-cm-9-" + section.getDate() + "-NIGHTLY-" + currentDevice
+        					"update-cm-10-" + section.getDate() + "-NIGHTLY-" + currentDevice
         			);
         		}
-        		
+
         		return row;
         	}
         });
     }
-	@Override  
+	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		ListItem li = (ListItem)l.getItemAtPosition(position);
 		String url = "";
@@ -134,12 +134,12 @@ public class NightliesActivity extends SherlockListActivity {
 	    	 {
 	    		 Toast.makeText(NightliesActivity.this,"Problem loading data",1000).show();
 	    		 setSupportProgressBarIndeterminateVisibility(Boolean.FALSE);
-	    		 
+
 	    	 } else {
 	    		 NightliesActivity.this.gotDataEvent(result);
 	    	 }
 	     }
-    	
+
     }
     private class GetDevices extends AsyncTask<Void, Void, ArrayList<String>> {
 
@@ -162,34 +162,34 @@ public class NightliesActivity extends SherlockListActivity {
     	    {
     	    	NightliesActivity.this.dialog.hide();
     	    	NightliesActivity.this.dialog = null;
-    	    		
+
     	    }
 	    	 if(result == null)
 	    	 {
 	    		 Toast.makeText(NightliesActivity.this,"Problem loading data",1000).show();
 
-	    		 
+
 	    	 } else {
 	    		 NightliesActivity.this.gotDevices(result);
 	    	 }
-			
+
 		}
 
-    	
-    	
+
+
     }
     public void gotDevices(ArrayList<String> liste)
     {
 
     	openDeviceSelector(liste);
-    	
+
     }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getSupportMenuInflater().inflate(R.menu.menu, menu);
-	    
+
 	    // Configure the search info and add any event listeners
-	  
+
 	    return super.onCreateOptionsMenu(menu);
 	}
 	public void openDeviceSelector(final ArrayList<String> items)
@@ -205,14 +205,14 @@ public class NightliesActivity extends SherlockListActivity {
 		    	NightliesActivity.this.load(items.get(item));
 		    }
 		});
-		AlertDialog alert = builder.create();		
+		AlertDialog alert = builder.create();
 		alert.show();
-		
+
 	}
 	public void getDevices()
 	{
-		
-		dialog = ProgressDialog.show(this, "", 
+
+		dialog = ProgressDialog.show(this, "",
                 "Getting device list. \nHold on...", true);
 		dialog.show();
 		new GetDevices().execute();
