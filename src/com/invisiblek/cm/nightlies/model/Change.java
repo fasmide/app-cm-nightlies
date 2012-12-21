@@ -1,4 +1,4 @@
-package dk.mide.fas.cmnightlies.model;
+package com.invisiblek.cm.nightlies.model;
 
 public class Change implements ListItem {
 	public int id;
@@ -8,5 +8,5 @@ public class Change implements ListItem {
 	public boolean isSection(){
 		return false;
 	}
-	
+
 }

@@ -1,4 +1,4 @@
-package dk.mide.fas.cmnightlies;
+package com.invisiblek.cm.nightlies;
 
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
@@ -15,9 +15,9 @@ import java.text.SimpleDateFormat;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import dk.mide.fas.cmnightlies.model.Change;
-import dk.mide.fas.cmnightlies.model.ListItem;
-import dk.mide.fas.cmnightlies.model.Section;
+import com.invisiblek.cm.nightlies.model.Change;
+import com.invisiblek.cm.nightlies.model.ListItem;
+import com.invisiblek.cm.nightlies.model.Section;
 
 public class Service {
 

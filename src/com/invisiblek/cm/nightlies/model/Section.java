@@ -1,4 +1,4 @@
-package dk.mide.fas.cmnightlies.model;
+package com.invisiblek.cm.nightlies.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class Section implements ListItem {
 	public Date d;
-	
+
 	public boolean isSection()
 	{
 		return true;

@@ -1,4 +1,4 @@
-package dk.mide.fas.cmnightlies;
+package com.invisiblek.cm.nightlies;
 
 import java.util.ArrayList;
 
@@ -7,9 +7,9 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.Window;
 
-import dk.mide.fas.cmnightlies.model.Change;
-import dk.mide.fas.cmnightlies.model.ListItem;
-import dk.mide.fas.cmnightlies.model.Section;
+import com.invisiblek.cm.nightlies.model.Change;
+import com.invisiblek.cm.nightlies.model.ListItem;
+import com.invisiblek.cm.nightlies.model.Section;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
