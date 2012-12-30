@@ -12,33 +12,67 @@ import java.util.Locale;
 import java.text.SimpleDateFormat;
 
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import dk.mide.fas.cmnightlies.model.Change;
+import dk.mide.fas.cmnightlies.model.Device;
+import dk.mide.fas.cmnightlies.model.Device.Build;
 import dk.mide.fas.cmnightlies.model.ListItem;
 import dk.mide.fas.cmnightlies.model.Section;
 
 public class Service {
 	
-	String changesUrl = "http://cm9log-app.appspot.com/changelog/?device=";
-	String devicesUrl = "http://cm9log-app.appspot.com/devices/";
-	public ArrayList<String> getDevices() throws Exception {
-		Gson gson = new Gson();
-		
-		HttpURLConnection con = (HttpURLConnection) new URL(devicesUrl).openConnection();
-		
-		InputStreamReader reader = new InputStreamReader(con.getInputStream());
-		Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();
-		ArrayList<String> liste = gson.fromJson(reader, collectionType);
-		Collections.sort(liste);
-		reader.close();
-		con.disconnect();
-		return liste;
-		
+	private static final String CM9_CHANGES_URL = "http://cm9log-app.appspot.com/changelog/?device=";
+	private static final String CM9_DEVICES_URL = "http://cm9log-app.appspot.com/devices/";
+	private static final String CM10_CHANGES_URL = "http://cm10log-app.appspot.com/changelog/?device=";
+    private static final String CM10_DEVICES_URL = "http://cm10log-app.appspot.com/devices/";
+    	
+    public static ArrayList<Device> getCm9Devices() {
+        return convertToDevice(getDevices(CM9_DEVICES_URL), Build.CM9);
+    }
+    
+   public static ArrayList<Device> getCm10Devices() {
+       return convertToDevice(getDevices(CM10_DEVICES_URL), Build.CM10);
+    }
+    
+	private static ArrayList<String> getDevices(String url) {
+	    try {
+    	    Gson gson = new Gson();
+    		HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
+    		InputStreamReader reader = new InputStreamReader(con.getInputStream());
+    		Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();
+    		ArrayList<String> liste = gson.fromJson(reader, collectionType);
+    		Collections.sort(liste);
+    		reader.close();
+    		con.disconnect();
+    		return liste;
+        } catch (Exception e) {
+            Log.d(NightliesActivity.TAG, "getDevices exception", e);
+            return new ArrayList<String>();
+        }
 	}
-	public ArrayList<ListItem> getChanges(String device) throws Exception{
-		String url = changesUrl + device;
+	
+	private static ArrayList<Device> convertToDevice(ArrayList<String> names, Build build) {
+	    ArrayList<Device> devices = new ArrayList<Device>(names.size());
+	    for (String name : names) {
+	        devices.add(new Device(name, build));
+	    }
+	    return devices;
+	}
+	
+    public static String[] convertToArray(ArrayList<Device> devices) {
+        String[] array = new String[devices.size()];
+        for (int i = 0; i < devices.size(); i++) {
+            array[i] = devices.get(i).name;
+        }
+        return array;
+    }
+	
+	public static ArrayList<ListItem> getChanges(Device device) throws Exception{
+		String url = (device.isCm9() ? CM9_CHANGES_URL : CM10_CHANGES_URL) + device.name;
 		Gson gson = new Gson();
 		HttpURLConnection connection = 
 				(HttpURLConnection) new URL(url).openConnection();		
