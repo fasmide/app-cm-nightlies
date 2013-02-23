@@ -25,10 +25,12 @@ import dk.mide.fas.cmnightlies.model.Section;
 
 public class Service {
 	
-	private static final String CM9_CHANGES_URL = "http://cm9log-app.appspot.com/changelog/?device=";
-	private static final String CM9_DEVICES_URL = "http://cm9log-app.appspot.com/devices/";
-	private static final String CM10_CHANGES_URL = "http://cm10log-app.appspot.com/changelog/?device=";
-    private static final String CM10_DEVICES_URL = "http://cm10log-app.appspot.com/devices/";
+    private static final String CM9_CHANGES_URL = "http://9.cmxlog.com/changelog/?device=";
+    private static final String CM9_DEVICES_URL = "http://9.cmxlog.com/devices/";
+    private static final String CM10_CHANGES_URL = "http://10.cmxlog.com/changelog/?device=";
+    private static final String CM10_DEVICES_URL = "http://10.cmxlog.com/devices/";
+    private static final String CM10_1_CHANGES_URL = "http://10.1.cmxlog.com/changelog/?device=";
+    private static final String CM10_1_DEVICES_URL = "http://10.1.cmxlog.com/devices/";
     	
     public static ArrayList<Device> getCm9Devices() {
         return convertToDevice(getDevices(CM9_DEVICES_URL), Build.CM9);
@@ -36,6 +38,10 @@ public class Service {
     
    public static ArrayList<Device> getCm10Devices() {
        return convertToDevice(getDevices(CM10_DEVICES_URL), Build.CM10);
+    }
+   
+    public static ArrayList<Device> getCm10_1Devices() {
+        return convertToDevice(getDevices(CM10_1_DEVICES_URL), Build.CM10_1);
     }
     
 	private static ArrayList<String> getDevices(String url) {
@@ -72,7 +78,8 @@ public class Service {
     }
 	
 	public static ArrayList<ListItem> getChanges(Device device) throws Exception{
-		String url = (device.isCm9() ? CM9_CHANGES_URL : CM10_CHANGES_URL) + device.name;
+	    String url = (device.isCm9() ? CM9_CHANGES_URL : device.isCm10() ? CM10_CHANGES_URL : CM10_1_CHANGES_URL)
+                + device.name;
 		Gson gson = new Gson();
 		HttpURLConnection connection = 
 				(HttpURLConnection) new URL(url).openConnection();		

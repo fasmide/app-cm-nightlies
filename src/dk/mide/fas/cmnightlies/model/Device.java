@@ -5,7 +5,7 @@ import android.content.SharedPreferences.Editor;
 
 public class Device {
     public enum Build {
-        CM9, CM10, CM11
+        CM9, CM10, CM10_1, CM11
     }
 
     public final String name;
@@ -23,13 +23,17 @@ public class Device {
     public boolean isCm10() {
         return Build.CM10 == build;
     }
-
+    
+    public boolean isCm10_1() {
+        return Build.CM10_1 == build;
+    }
+    
     public boolean isCm11() {
         return Build.CM11 == build;
     }
 
-    public int getBuildVersion() {
-        return isCm9() ? 9 : isCm10() ? 10 : 11;
+    public String getBuildVersion() {
+        return isCm9() ? "9" : isCm10() ? "10" : isCm10_1() ? "10.1" : "11";
     }
 
     @Override
