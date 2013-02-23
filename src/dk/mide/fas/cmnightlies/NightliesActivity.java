@@ -36,6 +36,7 @@ public class NightliesActivity extends SherlockListActivity {
     public static final String TAG = "app-cm-nightlies";
     private static final String CM9_SECTION_HEADER = "==== CM9 devices ====";
     private static final String CM10_SECTION_HEADER = "==== CM10 devices ====";    
+    private static final String CM10_1_SECTION_HEADER = "==== CM10.1 devices ====";    
     
     private LayoutInflater mInflater;
     private SharedPreferences prefs;
@@ -152,6 +153,8 @@ public class NightliesActivity extends SherlockListActivity {
 			liste.add(0, new Device(CM9_SECTION_HEADER, Build.CM9));
 			liste.add(new Device(CM10_SECTION_HEADER, Build.CM10));
             liste.addAll(Service.getCm10Devices());
+            liste.add(new Device(CM10_1_SECTION_HEADER, Build.CM10_1));
+            liste.addAll(Service.getCm10_1Devices());
 			return liste;
 		}
 		protected void onPostExecute(ArrayList<Device> result)
